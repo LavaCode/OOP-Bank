@@ -19,16 +19,12 @@ class Account {
         } else if (amount > 5000) {
             return `That's above the daily limit. Balance is: ${this.balance}`;
         } else {
-           return `New balance: ${(this.balance -= amount)}`;
+            return `New balance: ${(this.balance -= amount)}`;
         }
     }
 
 }
 
-const accountHolder = new Account('Rein', 500, 2000);
-
-console.log(`hi my name is ${accountHolder.name}, today I have a balance of ${accountHolder.balance} and a credit limit of ${accountHolder.creditLimit}`)
-console.log(accountHolder.makeDeposit(1000));
-
+const accountHolder = new Account('Rein', 500, 2000); //extra, for testing
 
 module.exports = Account;

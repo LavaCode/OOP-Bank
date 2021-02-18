@@ -15,7 +15,7 @@ class BusinessAccount extends Account {
     }
 
     makeWithdrawal(amount) {
-        if (amount > this.balance || amount > (this.creditLimit + this.balance)|| amount > 20000) {
+        if (amount > this.balance || amount > (this.creditLimit + this.balance) || amount > 20000) {
             return `You're exceeding limits. Balance: ${this.balance}`;
         } else {
             return `New balance: ${(this.balance -= amount)}`;
@@ -35,6 +35,6 @@ class BusinessAccount extends Account {
     }
 }
 
-const company = new BusinessAccount();
+const company = new BusinessAccount(); //extra, for testing
 
-module.exports = BusinessAccount ;
+module.exports = BusinessAccount;
