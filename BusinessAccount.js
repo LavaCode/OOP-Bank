@@ -4,18 +4,11 @@ class BusinessAccount extends Account {
     constructor(name, balance, creditLimit, sepaPermission) {
         super(name, balance, creditLimit);
         this.sepaPermission = sepaPermission;
-    }
-
-    makeDeposit(amount) {
-        if (amount < 0) {
-            return `Uhm, that's impossible. Balance: ${this.balance}`;
-        } else {
-            return `Your new balance is ${(this.balance += amount)}`
-        }
+        this.withdrawLimit = 20000;
     }
 
     makeWithdrawal(amount) {
-        if (amount > this.balance || amount > (this.creditLimit + this.balance) || amount > 20000) {
+        if (amount > this.balance || amount > (this.creditLimit + this.balance) || amount > this.withdrawLimit) {
             return `You're exceeding limits. Balance: ${this.balance}`;
         } else {
             return `New balance: ${(this.balance -= amount)}`;

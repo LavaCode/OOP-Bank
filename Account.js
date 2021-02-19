@@ -3,6 +3,7 @@ class Account {
         this.name = name;
         this.balance = balance;
         this.creditLimit = creditLimit;
+        this.withdrawLimit = 5000;
     }
 
     makeDeposit(amount) {
@@ -16,13 +17,12 @@ class Account {
     makeWithdrawal(amount) {
         if (amount > this.balance) {
             return `Insufficient funds! Balance: ${this.balance}`;
-        } else if (amount > 5000) {
+        } else if (amount > this.withdrawLimit) {
             return `That's above the daily limit. Balance is: ${this.balance}`;
         } else {
             return `New balance: ${(this.balance -= amount)}`;
         }
     }
-
 }
 
 const accountHolder = new Account('Rein', 500, 2000); //extra, for testing
